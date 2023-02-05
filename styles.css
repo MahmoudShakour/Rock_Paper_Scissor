@@ -1,0 +1,65 @@
+
+*{
+    background-color: darkblue;
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.intro-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 50px;
+    font-weight: 800;
+    font-size: 100px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    padding:50px;
+    padding-top: 100px;
+}
+
+button{
+    padding:20px;
+    background-color: beige;
+    font-size: 40px;
+}
+
+.score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+    padding:50px;
+}
+
+
+.score-text{
+    font-size: 70px;
+}
+
+.status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    padding-top: 30px;
+}
+
+#man-score,
+#computer-score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    padding-top: 30px;
+}

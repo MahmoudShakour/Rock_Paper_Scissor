@@ -32,18 +32,52 @@ function playRound(playerSelection,computerSelection){
     }
 }
 
-function game(){
-    for(let i=0;i<5;i++){
-        let userSelection=prompt("Select your tool: ");
-        console.log(playRound(userSelection,getComputerChoice()));
-    }
 
-    if(userScore>computerScore){
-        console.log("you win the game!");
+function Game(){    
+    let manChoice=this.textContent;
+    let statusText=playRound(manChoice,getComputerChoice());
+    
+    const status=document.querySelector(".status");
+    status.textContent=statusText;
+
+    
+    const manTextScore=document.querySelector("#man-score");
+    manTextScore.textContent=userScore.toString();
+    
+    const computerTextScore=document.querySelector("#computer-score");
+    computerTextScore.textContent=computerScore.toString();
+    
+    checkResult();
+}
+
+const buttons=document.querySelectorAll("button");
+buttons.forEach((button)=>{
+    button.addEventListener('click',Game);
+});
+
+function checkResult(){
+    
+    console.log(userScore + " " + computerScore);
+    
+    if(userScore===5){
+        endGame("You Win The game,Congratulations!");
     }
-    else{
-        console.log("try again,you lost the game!");
+    else if(computerScore===5){
+        endGame("You Lost The Game,Try Again.")
     }
 }
 
-game();
+function endGame(message){
+    
+    const messageBlock=document.createElement("div");
+    messageBlock.classList.add("status");
+    messageBlock.textContent=message;
+
+    const gameMode=document.querySelector(".game-mode");
+    const buttons=document.querySelector(".buttons");
+    const score=document.querySelector(".score");
+
+    gameMode.removeChild(buttons);
+    gameMode.insertBefore(messageBlock,score);
+}
+
